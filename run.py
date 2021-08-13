@@ -1,6 +1,9 @@
+import threading
 from concurrent.futures import ThreadPoolExecutor
 
 from common.driver import Driver
+
+LOCK = threading.Lock()
 
 
 def main():
@@ -10,7 +13,8 @@ def main():
 
 
 def driver_dr(i):
-    dr = Driver()
+    with LOCK:
+        dr = Driver()
     dr.get("https://www.amazon.co.jp/")
     dr.quit()
     print(f"{i+1}回目成功")
