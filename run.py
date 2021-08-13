@@ -7,11 +7,12 @@ def main():
         options = Options()
         options.add_argument('--headless')
         driver = webdriver.Chrome(options=options)
-        print("成功")
+        
         #読み込み先URL
-        # driver.get('https://xxxx xxxx.com')
+        driver.get('https://www.google.com/')
         #読み込んだHTML内から取得するテキストのID属性を指定
         driver.quit()
+        print("成功")
     except Exception:
         print("失敗")
 
