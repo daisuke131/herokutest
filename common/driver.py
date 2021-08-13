@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-# from common.util import fetch_user_agent
+from common.util import fetch_user_agent
 
 
 class Driver:
@@ -9,7 +9,7 @@ class Driver:
         self.driver = self.driver_setting()
 
     def driver_setting(self):
-        # user_agent_random = fetch_user_agent()
+        user_agent_random = fetch_user_agent()
         # ドライバーの読み込み
         options = Options()
 
@@ -17,22 +17,22 @@ class Driver:
         # if os.name == "posix" or headless_flg:  # Linux　➙　本番環境のためHeadless
         options.add_argument("--headless")
 
-        # # options.add_argument("--user-agent=" + user_agent)
-        # options.add_argument("--user-agent=" + user_agent_random)
-        # # self.options.add_argument('log-level=3')
-        # options.add_argument("--ignore-certificate-errors")
-        # options.add_argument("--ignore-ssl-errors")
-        # options.add_argument("--incognito")  # シークレットモードの設定を付与
-        # options.add_argument("disable-infobars")  # AmazonLinux用
-        # # options.add_argument("--start-maximized")  # 画面最大化
-        # options.add_argument("--disable-gpu")
-        # options.add_argument("--no-sandbox")
-        # options.add_argument("log-level=3")
-        # options.add_argument("--allow-running-insecure-content")
-        # options.add_argument("--disable-web-security")
-        # options.add_argument("--disable-desktop-notifications")
-        # options.add_argument("--disable-application-cache")
-        # options.add_argument("--lang=ja")
+        # options.add_argument("--user-agent=" + user_agent)
+        options.add_argument("--user-agent=" + user_agent_random)
+        # self.options.add_argument('log-level=3')
+        options.add_argument("--ignore-certificate-errors")
+        options.add_argument("--ignore-ssl-errors")
+        options.add_argument("--incognito")  # シークレットモードの設定を付与
+        options.add_argument("disable-infobars")  # AmazonLinux用
+        # options.add_argument("--start-maximized")  # 画面最大化
+        options.add_argument("--disable-gpu")
+        options.add_argument("--no-sandbox")
+        options.add_argument("log-level=3")
+        options.add_argument("--allow-running-insecure-content")
+        options.add_argument("--disable-web-security")
+        options.add_argument("--disable-desktop-notifications")
+        options.add_argument("--disable-application-cache")
+        options.add_argument("--lang=ja")
 
         try:
             driver = webdriver.Chrome(options=options)
